@@ -2,22 +2,9 @@
   <div>
     <router-link
       :to="{ 
-            name: 'movies', 
+            name: 'movie', 
             params: { 
                 id: item.id,
-                adult: item.adult,
-                backdrop_path: item.backdrop_path,
-                genre_ids: item.genre_ids,
-                original_language: item.original_language,
-                original_title: item.original_title,
-                overview: item.overview,
-                popularity: item.popularity,
-                poster_path: item.poster_path,
-                release_date: item.release_date,
-                title: item.title,
-                video: item.video,
-                vote_average: item.vote_average,
-                vote_count: item.vote_count
             } 
         }"
     >
@@ -43,11 +30,17 @@ export default {
 img {
   width: auto;
   height: 350px;
+  transition: all .1s ease-in-out;
 }
+
+img:hover { 
+  transform: scale(1.1); 
+  }
 
 p {
   color: white;
 }
 </style>
+
 
 

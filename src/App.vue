@@ -27,7 +27,7 @@ export default {
   body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.4;
-    background-color: rgb(27, 27, 27);
+    background-color: rgb(21, 21, 24);
     margin-left: 80px;
   }
 

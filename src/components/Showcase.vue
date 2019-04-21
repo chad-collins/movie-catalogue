@@ -1,5 +1,62 @@
 <template>
-    <div class="background">
-        <p>SHOWCASE</p>
+  <div
+    class="hero"
+    v-bind:style="{ backgroundImage: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 18%, rgba(255, 255, 255, 0) 100%), url(' + 'https://image.tmdb.org/t/p/original' + movie.backdrop_path + ')' }"
+  >
+    <div class="info-wrapper">
+      <p class="info--title">{{ movie.title }}</p>
+      <p class="info--date">{{ movie.release_date.substring(0, 4)}}</p>
+      <p
+        class="info--date"
+      >{{ movie.vote_average + ' out of 10' + ' (' + movie.vote_count + ' reviews)'}}</p>
+      <p>{{ movie.tagline }}</p>
+      <p>{{ movie.overview }}</p>
     </div>
+  </div>
 </template>
+
+<script>
+export default {
+    name: "Showcase",
+    props: {movie: {}}
+}
+</script>
+
+
+<style scoped>
+.hero {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  width: calc(100vw - 80px);
+  height: 70vh;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 18%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.info-wrapper {
+  width: 550px;
+}
+
+.info-wrapper > * {
+  margin-top: 0.4rem;
+}
+
+.info--title {
+  color: white;
+  font-size: 3rem;
+}
+
+p {
+  color: rgb(230, 230, 230);
+  font-size: 1.1rem;
+}
+</style>

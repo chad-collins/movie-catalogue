@@ -2,8 +2,10 @@
   <div class="swiper-container">
     <h4>{{ categoryName }}</h4>
     <swiper :options="swiperOptions">
-      <swiper-slide v-bind:key="item.id" v-for="item in items.results">
-        <Item v-bind:item="item"/>
+      <swiper-slide v-bind:key="item.id" v-for="item in items">
+        <Item 
+        v-bind:item="item"
+        />
       </swiper-slide>
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
@@ -26,7 +28,20 @@ export default {
   props: {
     categoryName: String,
     items: [],
-    swiperOptions: {}
+  },
+  data() {
+    return {
+      swiperOptions: {
+        slidesPerView: 5,
+        spaceBetween: 0,
+        freeMode: true,
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        }
+      }
+    };
   }
 };
 </script>
@@ -48,5 +63,4 @@ swiper-slide {
 .swiper-container {
   height: 400px;
 }
-
 </style>

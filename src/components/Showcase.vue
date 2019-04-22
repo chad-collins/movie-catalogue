@@ -28,7 +28,7 @@ export default {
   display: flex;
   align-items: center;
   padding: 2rem;
-  width: calc(100vw - 92px);
+  width: 100vw;
   height: 70vh;
   background: linear-gradient(
     90deg,

@@ -6,8 +6,6 @@
         <li><router-link to="/movies"><i class="fas fa-film"></i></router-link></li>
         <li><router-link to="/shows"><i class="fas fa-tv"></i></router-link></li>
         <li><router-link to="/"><i class="fas fa-search"></i></router-link></li>
-    </ul>
-    <ul>
         <li><router-link to="/about"><i class="fas fa-info-circle"></i></router-link></li>
     </ul>
   </div>
@@ -21,26 +19,28 @@
 
 <style scoped>
     .navbar{
-        background-color: black;
-        border-right:1px solid rgb(46, 46, 46);
-        width: 80px;
-        height: 100vh;
-        left:0;
-        position: fixed;
-        display: flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        background-color: rgb(0, 0, 0);
+        border-right:1px solid rgb(46, 46, 46);
+        display: flex;
+        height: 80px;
+        justify-content: space-evenly;
+        position: fixed;
+        top:0;
+        width: 100%;
         z-index: 500;
     }
 
     ul{
+        display: flex;
+        width: 100%;
+        flex-direction: inherit;
         list-style: none;
+        justify-content: space-evenly;
+        align-items: center;
+
     }
 
-    li {
-        margin: 3rem 0;
-    }
 
     a{
         text-decoration: none;
@@ -54,4 +54,28 @@
         -webkit-fill-color: #FFF;
         text-shadow: 1px 0px 20px rgb(255, 255, 238); 
     }
+
+   @media (min-width: 600px) {
+       .navbar{
+        align-items: center;
+        border-right:1px solid rgb(46, 46, 46);
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: space-between;
+        left:0;
+        position: fixed;
+        width: 80px;
+        z-index: 500;
+        }
+
+        ul{
+            margin-top:5rem;
+        }
+        
+        li {
+            margin: 1.5rem;
+        }
+   }
+
 </style>

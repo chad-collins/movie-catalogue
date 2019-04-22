@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <NavBar />
+    <main>
     <router-view />
+    </main>
   </div>
 </template>
 
@@ -28,11 +30,21 @@ export default {
     font-family: 'Roboto', sans-serif;
     line-height: 1.4;
     background-color: rgb(21, 21, 24);
-    margin-left: 80px;
   }
 
 p{
   color: rgb(136, 136, 136);
+}
+
+  main {
+    margin-top: 80px;
+  }
+
+@media (min-width: 600px) {
+  main {
+    margin-left: 80px;
+    margin-top: 0;
+  }
 }
 
 </style>

@@ -59,6 +59,6 @@ p {
 }
 
 .about {
-  width: 600px;
+  
 }
 </style>

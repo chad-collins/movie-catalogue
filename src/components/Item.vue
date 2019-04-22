@@ -10,7 +10,6 @@
     >
       <img v-bind:src="'https://image.tmdb.org/t/p/w370_and_h556_bestv2//' + item.poster_path">
     </router-link>
-    <p>{{item.title}}</p>
   </div>
 </template>
 
@@ -34,7 +33,7 @@ img {
 }
 
 img:hover { 
-  transform: scale(1.1); 
+  transform: scale(1.03); 
   }
 
 p {

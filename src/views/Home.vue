@@ -28,13 +28,13 @@ export default {
     };
   },
   created() {
-    axios
-      .get(
-        //Trending Movies
-        "https://api.themoviedb.org/3/movie/popular?page=1&language=en-US&api_key=15d03a7e369cab34e74dc2b5087ab2e2"
-      )
-      .then(res => (this.trending = res.data.results))
-      .catch(err => console.log(err));
+    // axios
+    //   .get(
+    //     //Trending Movies
+    //     "https://api.themoviedb.org/3/movie/popular?page=1&language=en-US&api_key=15d03a7e369cab34e74dc2b5087ab2e2"
+    //   )
+    //   .then(res => (this.trending = res.data.results))
+    //   .catch(err => console.log(err));
 
     axios
       .get(

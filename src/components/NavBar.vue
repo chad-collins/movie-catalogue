@@ -1,6 +1,7 @@
 <template>
   <div class="navbar">
     <ul>
+        <!-- @/assets/images//outline-home-24px.svg -->
         <li><router-link to="/"><i class="fas fa-home"></i></router-link></li>
         <li><router-link to="/movies"><i class="fas fa-film"></i></router-link></li>
         <li><router-link to="/shows"><i class="fas fa-tv"></i></router-link></li>
@@ -30,6 +31,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+        z-index: 500;
     }
 
     ul{

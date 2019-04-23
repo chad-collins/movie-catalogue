@@ -1,6 +1,6 @@
 # Movie Trailer App
 
-See this project live at [movies.chadcollins.net](movies.chadcollins.net)
+See this project live at [movies.chadcollins.net](https://movies.chadcollins.net/)
 
 ## Project setup
 ```

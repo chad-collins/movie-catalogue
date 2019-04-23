@@ -1,4 +1,6 @@
-# bbgn-site
+# Movie Trailer App
+
+##See this project live at [movies.chadcollins.net](movies.chadcollins.net)
 
 ## Project setup
 ```

@@ -19,9 +19,9 @@ export default new Router({
     },
     {
       path: '/movie/:id',
-      name: 'movie',
+      name: 'MovieView',
       props: true,
-      component: () => import('./views/Movie.vue')
+      component: () => import('./views/MovieView.vue')
     }
   ]
 })

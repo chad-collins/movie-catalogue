@@ -1,23 +1,23 @@
 <template>
   <div id="app">
     <Showcase v-bind:movie="movie"/>
-    <Carrousel categoryName="Trending Movies" v-bind:items="trending"/>
-    <Carrousel categoryName="Now In Theaters" v-bind:items="inTheaters"/>
-    <Carrousel categoryName="Best of 90's Action" v-bind:items="ninetiesAction"/>
+    <!-- <Carrousel categoryName="Trending Movies" v-bind:items="trending"/> -->
+    <MovieRow categoryName="Now In Theaters" v-bind:movies="inTheaters"/>
+    <MovieRow categoryName="Best of 90's Action" v-bind:movies="ninetiesAction"/>
   </div>
 </template>
 
 
 <script>
-import Carrousel from "../components/Carrousel";
+import MovieRow from "../components/MovieRow";
 import axios from "axios";
 import Showcase from "../components/Showcase";
 
 export default {
   name: "home",
   components: {
-    Carrousel,
-    Showcase
+    Showcase,
+    MovieRow
   },
   data() {
     return {
@@ -61,7 +61,3 @@ export default {
   }
 };
 </script>
-
-
-<style scoped>
-</style>

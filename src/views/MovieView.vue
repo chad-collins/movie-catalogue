@@ -1,25 +1,25 @@
 <template>
   <div>
     <Showcase v-bind:movie="movie"/>
-    <Carrousel categoryName="Cast" v-bind:items="items"/>
+    <CastRow v-bind:cast="cast"/>
   </div>
 </template>
 
 <script>
 import Showcase from "../components/Showcase";
-import Carrousel from "../components/Carrousel";
+import CastRow from "../components/CastRow";
 import axios from "axios";
 
 export default {
-  name: "movie",
+  name: "MovieView",
   components: {
     Showcase,
-    Carrousel
+    CastRow
   },
   data() {
     return {
       movie: {},
-      items: []
+      cast: []
     };
   },
   created() {
@@ -30,7 +30,7 @@ export default {
           "?api_key=15d03a7e369cab34e74dc2b5087ab2e2&append_to_response=credits"
       )
       .then(res => (this.movie = res.data))
-      .then(() => (this.items = this.movie.credits.cast))
+      .then(() => (this.cast = this.movie.credits.cast))
       .catch(err => console.log(err));
   }
 };

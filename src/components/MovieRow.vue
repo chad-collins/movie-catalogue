@@ -1,0 +1,51 @@
+<template>
+  <div class="row-container">
+    <h2 class="row-title">{{ categoryName }}</h2>
+    <div class="movie-row-wrapper">
+      <SingleMovie v-bind:movie="movie" v-bind:key="movie.id" v-for="movie in movies"/>
+    </div>
+  </div>
+</template>
+
+
+<script>
+import SingleMovie from "./SingleMovie.vue";
+
+export default {
+  name: "MovieRow",
+  components: { SingleMovie },
+
+  props: {
+    categoryName: String,
+    movies: []
+  }
+};
+</script>
+
+
+<style scoped>
+
+.row-title {
+  color: white;
+  font-size: 1.7rem;
+  margin-left: 1.5rem;
+  margin-bottom: 0.7rem; 
+}
+
+.movie-row-wrapper{
+  display: flex;
+  width: 100%;
+  
+  overflow-y: hidden; /* Hide horizontal scrollbar */
+  overflow-x: scroll; /* Add vertical scrollbar */
+}
+
+.movie-row-wrapper > * {
+  margin-left: 1.5rem;
+}
+
+.movie-row-wrapper > *:last-child {
+  padding-right:1.5rem;
+}
+
+</style>

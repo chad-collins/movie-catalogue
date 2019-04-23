@@ -24,10 +24,8 @@
       <img class="links-img" src="@/assets/images/GitHub-Mark-Light-32px.png" alt="Github logo">
       <img class="links-img" src="@/assets/images/npm.png" alt="npm logo">
       <img class="links-img" src="@/assets/images/vuelogo.png" alt="Vue.js logo">
-      <img class="links-img" src="@/assets/images/tmdb.svg" alt="TMDB logo">
       <img class="links-img" src="@/assets/images/nodejs.png" alt="Vue logo">
       <img class="links-img" src="@/assets/images/vscode.png" alt="Visual Studio Code logo">
-      <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
       <p>Icons courtesty of material.io</p>
     </div>
   </div>
@@ -40,22 +38,14 @@ export default {
 </script>
 
 <style scoped>
-.links-imgaa {
-  color: white;
-}
-
 
 p {
   color: rgb(136, 136, 136);
 }
 
-.links-container {
-}
 
 .links-img {
   margin: 0.5rem;
-  width: auto;
-  height: 32px;
 }
 
 .about {

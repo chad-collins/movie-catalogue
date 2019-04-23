@@ -28,7 +28,7 @@ export default {
   display: flex;
   align-items: center;
   padding: 2rem;
-  width: 100vw;
+  width: 100%;
   height: 70vh;
   background: linear-gradient(
     90deg,
@@ -39,7 +39,7 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
+ 
 }
 
 .info-wrapper {
@@ -59,4 +59,11 @@ p {
   color: rgb(230, 230, 230);
   font-size: 1.1rem;
 }
+
+@media (min-width: 600px) {
+  .hero {
+   
+  }
+}
+
 </style>

@@ -70,19 +70,19 @@ main {
   height: 32px;
 }
 
-
-
-.row-container{
+.row-container {
   box-shadow: inset 0 2px 25px #000000;
   padding-top: 1rem;
   margin: 2rem 0;
 }
 
-
+button:hover{
+  cursor: pointer;
+}
 
 @media (min-width: 600px) {
   main {
-    margin-left: 80px;
+    margin-left: 4rem;
     margin-top: 0;
   }
 }

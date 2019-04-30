@@ -23,7 +23,7 @@
         background-color: rgb(0, 0, 0);
         border-right:1px solid rgb(46, 46, 46);
         display: flex;
-        height: 80px;
+        height: 4rem;
         justify-content: space-evenly;
         position: fixed;
         top:0;
@@ -41,7 +41,7 @@
 
     }
 
-
+ 
     a{
         text-decoration: none;
         color: white;
@@ -65,7 +65,7 @@
         justify-content: space-between;
         left:0;
         position: fixed;
-        width: 80px;
+        width: 4rem;
         z-index: 500;
         }
 

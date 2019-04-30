@@ -1,7 +1,66 @@
 <template>
   <div>
     <Showcase v-bind:movie="movie" v-bind:videoId="videoId"/>
-    <CastRow v-bind:cast="cast"/>
+
+    <div class="movie-nav">
+      <button class="button" @click="element = 'info'">
+        <i class="material-icons">info</i>info
+      </button>
+      <button class="button" @click="element = 'photos'">
+        <i class="material-icons">camera_alt</i>photos
+      </button>
+    </div>
+
+    <!--OVERVIEW SECTION-->
+    <div>
+      <div class="info-container" v-if="element=='info'">
+        <img
+          class="movie-poster"
+          v-bind:src="'https://image.tmdb.org/t/p/w370_and_h556_bestv2//' + movie.poster_path"
+        >
+
+        <div class="info-wrapper">
+          <h2>Synopsis</h2>
+          <p>{{movie.overview}}</p>
+          <ul class="stat-list">
+            <li class="stat">
+              <p class="stat--label">Runtime:</p>
+              <p class="stat--content">{{ movie.runtime }} minutes</p>
+            </li>
+            <li class="stat">
+              <p class="stat--label">Genres:</p>
+              <p class="stat--content" v-bind:key="genre" v-for="genre in movie.genres">
+                {{ genre.name }}
+                <span class="stat--splitter">,&nbsp;</span>
+              </p>
+            </li>
+            <li class="stat">
+              <p class="stat--label">Directed by:</p>
+              <p class="stat--content" v-bind:key="director" v-for="director in directors">
+                {{ director.name }}
+                <span class="stat--splitter">,&nbsp;</span>
+              </p>
+            </li>
+            <li class="stat">
+              <p class="stat--label">Budget:</p>
+              <p class="stat--content">${{ formatNumber(movie.budget) }}</p>
+            </li>
+            <li class="stat">
+              <p class="stat--label">Revenue:</p>
+              <p class="stat--content">${{ formatNumber(movie.revenue) }}</p>
+            </li>
+            <li class="stat">
+              <p class="stat--label">Production:</p>
+              <p class="stat--content" v-bind:key="prod" v-for="prod in movie.production_companies">
+                {{ prod.name }}
+                <span class="stat--splitter">,&nbsp;</span>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <CastRow v-bind:cast="cast"/>
+    </div>
   </div>
 </template>
 
@@ -20,8 +79,15 @@ export default {
     return {
       movie: {},
       cast: [],
-      videoId: {}
+      directors: [],
+      videoId: {},
+      element: "info"
     };
+  },
+  methods: {
+    formatNumber: function(num) {
+      return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+    }
   },
   created() {
     axios
@@ -32,6 +98,12 @@ export default {
       )
       .then(res => (this.movie = res.data))
       .then(() => (this.cast = this.movie.credits.cast))
+      .then(
+        () =>
+          (this.directors = this.movie.credits.crew.filter(
+            entry => entry.job === "Director"
+          ))
+      )
       .catch(err => console.log(err));
 
     axios
@@ -46,3 +118,65 @@ export default {
 };
 </script>
 
+<style scoped>
+h2 {
+  color: white;
+}
+.info-container {
+  margin: 1rem;
+  display: flex;
+  max-width: 1000px;
+}
+
+.movie-poster {
+  min-width: 320px;
+  height: min-content;
+  margin-right: 1rem;
+}
+.movie-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.info-wrapper > * {
+  margin: 1rem;
+}
+
+button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+li {
+  margin: 0.5rem 0;
+}
+
+.stat {
+  display: flex;
+}
+
+.stat--label {
+  width: 100px;
+  color: white;
+}
+
+.stat--content {
+}
+
+.stat--splitter {
+  color: orange;
+}
+</style>
+
+
+
+
+result.credits.crew.forEach(function(entry){
+    if (entry.job === 'Director') {
+        directors.push(entry.name);
+    }
+})
+console.log('Director: ' + directors.join(', '));

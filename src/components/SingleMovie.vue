@@ -25,7 +25,7 @@ export default {
 
 <style scoped>
 img {
-  height: 350px;
+  height: 35vh;
   width: auto;
   margin: 0.1rem;
   padding-bottom: 1rem;

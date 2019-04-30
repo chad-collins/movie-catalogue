@@ -25,7 +25,7 @@ export default {
       inTheaters: [],
       ninetiesAction: [],
       movie: {},
-      videoId:{}
+      videoId: {}
     };
   },
   created() {
@@ -49,13 +49,15 @@ export default {
             Math.floor(Math.random() * this.inTheaters.length)
           ])
       )
-      .then(() =>(axios
-      .get(
-        "https://api.themoviedb.org/3/movie/" +
-          this.movie.id +
-          "/videos?api_key=15d03a7e369cab34e74dc2b5087ab2e2"
+      .then(() =>
+        axios
+          .get(
+            "https://api.themoviedb.org/3/movie/" +
+              this.movie.id +
+              "/videos?api_key=15d03a7e369cab34e74dc2b5087ab2e2"
+          )
+          .then(res => (this.videoId = res.data.results[0]))
       )
-      .then(res => (this.videoId = res.data.results[0]))))
       .catch(err => console.log(err));
 
     axios
@@ -65,8 +67,6 @@ export default {
       )
       .then(res => (this.ninetiesAction = res.data.results))
       .catch(err => console.log(err));
-
-    
   }
 };
 </script>

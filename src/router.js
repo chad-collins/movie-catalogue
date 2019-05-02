@@ -18,6 +18,11 @@ export default new Router({
       component: () => import('./views/About.vue')
     },
     {
+      path: '/search',
+      name: 'search',
+      component: () => import('./views/SearchView.vue')
+    },
+    {
       path: '/movie/:id',
       name: 'MovieView',
       props: true,

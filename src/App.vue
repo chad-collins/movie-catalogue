@@ -12,6 +12,7 @@
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
+
 export default {
   name: "app",
   components: {
@@ -22,6 +23,8 @@ export default {
 </script>
 
 <style>
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -37,7 +40,7 @@ export default {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #818181;
 }
 
 /* Handle */
@@ -58,7 +61,7 @@ body {
 }
 
 p {
-  color: rgb(136, 136, 136);
+  color: rgb(138, 138, 138);
 }
 
 main {

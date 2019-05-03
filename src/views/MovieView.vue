@@ -134,6 +134,11 @@ export default {
   max-width: 1000px;
 }
 
+.movie-poster {
+  height: 100%;
+  max-height: 556px;
+}
+
 
 @media (min-width: 600px) {
  .movie-poster {

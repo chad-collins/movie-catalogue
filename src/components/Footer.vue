@@ -1,10 +1,25 @@
 <template>
   <footer>
-    <a href="https://www.themoviedb.org/" target="_blank">
-      <img class="links-img" src="@/assets/images/tmdb.svg" alt="TMDB logo">
-    </a>
-    <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
-    <p>&copy; 2019 Chad Collins</p>
+    <p>Built and Designed by Chad Collins</p>
+    <div class="wrapper">
+      <a href="https://github.com/rewkie/" target="_blank">
+        <img class="link_img" src="@/assets/images/GitHub-Mark-Light-32px.png" alt="Github logo">
+      </a>
+      <img class="link_img" src="@/assets/images/In-White-34.png" alt="Github logo">
+      <i class="material-icons link_img">email</i>
+    </div>
+
+    <div class="wrapper">
+      <div>
+        <a href="https://www.themoviedb.org/" target="_blank">
+          <img class="links-img" src="@/assets/images/tmdb.svg" alt="TMDB logo">
+        </a>
+        <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+      </div>
+    </div>
+    <div class="copy">
+      <p>&copy; 2019 Chad Collins</p>
+    </div>
   </footer>
 </template>
 
@@ -12,12 +27,36 @@
 
 <style scoped>
 footer {
+  margin: 1rem;
+  margin-top: 4rem;
   text-align: center;
-  padding: 1rem;
-  width: 100%;
 }
 
-footer > * {
-  margin: 0.4rem 0;
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  border-bottom: 1px solid rgb(49, 49, 49);
 }
+
+img {
+  margin-bottom: 1rem;
+}
+.material-icons {
+  color: white;
+}
+
+.link_img {
+  width: auto;
+  height: 21px;
+  margin: 0 0.8rem;
+}
+
+.copy {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  align-items: center;
+}
+
 </style>

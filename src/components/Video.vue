@@ -18,10 +18,9 @@ export default {
   background-color: blue;
   height: 300px;
   width: 300px;
-  
+
   top: 0;
   left: 0;
-
 }
 
 h2 {
@@ -29,6 +28,5 @@ h2 {
 }
 
 .video {
-
 }
 </style>

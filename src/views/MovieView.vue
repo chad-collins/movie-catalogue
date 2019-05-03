@@ -49,14 +49,14 @@
               <p class="stat--label">Revenue:</p>
               <p class="stat--content">${{ formatNumber(movie.revenue) }}</p>
             </li>
-            <li class="stat">
+            <!-- <li class="stat">
               <p class="stat--label">Production:</p>
               <p
                 class="stat--content"
                 v-bind:key="prod"
                 v-for="prod in movie.production_companies"
               >{{ prod.name }}&nbsp;</p>
-            </li>
+            </li> -->
           </ul>
         </div>
       <CastRow v-bind:cast="cast"/>
@@ -84,7 +84,6 @@ export default {
       directors: [],
       videoId: {},
       element: "info",
-      element: "photos"
     };
   },
   methods: {

@@ -4,10 +4,10 @@
 
     <div class="movie-nav">
       <button class="button" @click="element = 'info'">
-        <i class="material-icons">info</i>info
+        <i class="material-icons">info</i>&nbsp;info
       </button>
       <button class="button" @click="element = 'photos'">
-        <i class="material-icons">camera_alt</i>photos
+        <i class="material-icons">camera_alt</i>&nbsp;photos
       </button>
     </div>
 
@@ -31,14 +31,14 @@
               <p class="stat--label">Genres:</p>
               <p class="stat--content" v-bind:key="genre" v-for="genre in movie.genres">
                 {{ genre.name }}
-                <span class="stat--splitter">,&nbsp;</span>
+                &nbsp;
               </p>
             </li>
             <li class="stat">
               <p class="stat--label">Directed by:</p>
               <p class="stat--content" v-bind:key="director" v-for="director in directors">
                 {{ director.name }}
-                <span class="stat--splitter">,&nbsp;</span>
+                &nbsp;
               </p>
             </li>
             <li class="stat">
@@ -51,15 +51,17 @@
             </li>
             <li class="stat">
               <p class="stat--label">Production:</p>
-              <p class="stat--content" v-bind:key="prod" v-for="prod in movie.production_companies">
-                {{ prod.name }}
-                <span class="stat--splitter">,&nbsp;</span>
-              </p>
+              <p
+                class="stat--content"
+                v-bind:key="prod"
+                v-for="prod in movie.production_companies"
+              >{{ prod.name }}&nbsp;</p>
             </li>
           </ul>
         </div>
-      </div>
       <CastRow v-bind:cast="cast"/>
+      </div>
+      <div class="temp" v-if="element=='photos'">FEATURE COMING SOON</div>
     </div>
   </div>
 </template>
@@ -81,7 +83,8 @@ export default {
       cast: [],
       directors: [],
       videoId: {},
-      element: "info"
+      element: "info",
+      element: "photos"
     };
   },
   methods: {
@@ -119,25 +122,42 @@ export default {
 </script>
 
 <style scoped>
-h2 {
+.temp{
+  text-align: center;
+  margin: 3rem;
   color: white;
+  font-size: 3rem;
 }
 .info-container {
   margin: 1rem;
   display: flex;
+  flex-wrap: wrap;
   max-width: 1000px;
 }
 
-.movie-poster {
+
+@media (min-width: 600px) {
+ .movie-poster {
   min-width: 320px;
   height: min-content;
   margin-right: 1rem;
 }
+  }
+@media (max-width: 599px) {
+  .movie-poster {
+    display: none;
+  }
+}
+
 .movie-nav {
   display: flex;
   justify-content: center;
 }
 
+.info-wrapper {
+  flex: 1;
+  flex-shrink: unset;
+}
 .info-wrapper > * {
   margin: 1rem;
 }
@@ -163,20 +183,8 @@ li {
   color: white;
 }
 
-.stat--content {
-}
 
 .stat--splitter {
   color: orange;
 }
 </style>
-
-
-
-
-result.credits.crew.forEach(function(entry){
-    if (entry.job === 'Director') {
-        directors.push(entry.name);
-    }
-})
-console.log('Director: ' + directors.join(', '));

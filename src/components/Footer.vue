@@ -5,8 +5,12 @@
       <a href="https://github.com/rewkie/" target="_blank">
         <img class="link_img" src="@/assets/images/GitHub-Mark-Light-32px.png" alt="Github logo">
       </a>
-      <img class="link_img" src="@/assets/images/In-White-34.png" alt="Github logo">
-      <i class="material-icons link_img">email</i>
+      <a href="https://www.linkedin.com/in/chadacollins/" target="_blank">
+        <img class="link_img" src="@/assets/images/In-White-34.png" alt="Github logo">
+      </a>
+      <a href="mailto: contact@chadcollins.net" target="_blank">
+        <i class="material-icons link_img">email</i>
+      </a>
     </div>
 
     <div class="wrapper">
@@ -58,5 +62,4 @@ img {
   padding: 1rem;
   align-items: center;
 }
-
 </style>

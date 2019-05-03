@@ -8,13 +8,13 @@
         <input
           id="search"
           type="text"
-          placeholder="Movie Title"
+          placeholder="Movie Title or Actor Name"
           v-model="query"
           v-on:input="runSearch(query)"
         >
+    <h3 v-if="query.length >=2">Results for: "{{ query }}"</h3>
       </div>
     </div>
-    <h2 v-if="query.length >=2">Results for: "{{ query }}"</h2>
     <div class="list">
       <SingleCastMember
         v-bind:castMember="castMember"
@@ -78,9 +78,12 @@ export default {
 </script>
 
 <style scoped>
-h2 {
+
+
+
+h3 {
   color: white;
-  margin: 1rem;
+  padding: 2rem;
   text-align: center;
 }
 .movie {
@@ -90,7 +93,7 @@ h2 {
 .search-header {
   display: flex;
   justify-content: center;
-  padding: 1rem;
+  padding: 3rem;
   align-items: center;
 }
 .searchbar-wrapper {
@@ -130,6 +133,7 @@ input {
 
 .list {
   display: flex;
+  margin-top: 2rem;
   flex-wrap: wrap;
   justify-content: center;
 }

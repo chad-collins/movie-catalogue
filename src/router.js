@@ -27,6 +27,13 @@ export default new Router({
       name: 'MovieView',
       props: true,
       component: () => import('./views/MovieView.vue')
+    },
+
+    {
+      path: '/actor/:id',
+      name: 'SingleActorView',
+      props: true,
+      component: () => import('./views/SingleActorView.vue')
     }
   ]
 })

@@ -3,8 +3,8 @@
     <ul>
         <!-- @/assets/images//outline-home-24px.svg -->
         <li><router-link to="/"><i class="fas fa-home"></i></router-link></li>
-        <li><router-link to="/movies"><i class="fas fa-film"></i></router-link></li>
-        <li><router-link to="/shows"><i class="fas fa-tv"></i></router-link></li>
+        <!-- <li><router-link to="/movies"><i class="fas fa-film"></i></router-link></li>
+        <li><router-link to="/shows"><i class="fas fa-tv"></i></router-link></li> -->
         <li><router-link to="/search"><i class="fas fa-search"></i></router-link></li>
         <li><router-link to="/about"><i class="fas fa-info-circle"></i></router-link></li>
     </ul>

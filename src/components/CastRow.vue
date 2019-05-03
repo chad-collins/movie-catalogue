@@ -1,6 +1,6 @@
 <template>
   <div class="row-container">
-    <h2 class="row-title">Cast</h2>
+    <h3 class="row-title">Cast</h3>
     <div class="cast-row-wrapper">
       <SingleCastMember v-bind:castMember ="castMember" v-bind:key="castMember.id" v-for="castMember in cast"/>
     </div>

@@ -5,20 +5,47 @@
   >
     <div v-if="!isHidden" class="vid-container">
       <button class="close-btn" @click="isHidden = !isHidden">X</button>
-      <div class="vid-wrapper">
-        <youtube :video-id="videoId.key" @ready="ready" @playing="playing" :player-vars="{ autoplay: 1 }"></youtube>
+      <div class="video-responsive">
+        <iframe
+          id="ytplayer"
+          type="text/html"
+          width="640"
+          height="360"
+          :src="'https://www.youtube.com/embed/' + videoId.key + '?autoplay=1'"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+        <!-- <youtube
+          :video-id="videoId.key"
+          @ready="ready"
+          @playing="playing"
+          :player-vars="{ autoplay: 1 }"
+        ></youtube>-->
       </div>
     </div>
-    <div class="info-wrapper">
-      <p class="info--title">{{ movie.title }}</p>
-      <p class="info--date">{{ movie.release_date.substring(0, 4)}}</p>
-      <p class="info--date">{{ movie.vote_average + '/10' + ' (' + movie.vote_count + ' reviews)'}}</p>
-      <p>{{ movie.tagline }}</p>
-      <p>{{ movie.overview.substring(0, 250)}}...</p>
-      <div class="video-container">
-        <button class="show-btn" @click="isHidden = !isHidden"><i class="material-icons">play_arrow</i>Watch Trailer</button>
+    <img
+      class="mobile-only mobile-backdrop"
+      v-bind:src="'https://image.tmdb.org/t/p/original' + movie.backdrop_path"
+    >
+    <div class="info-container">
+      <img
+        class="mobile-only mobile-poster"
+        v-bind:src="'https://image.tmdb.org/t/p/original' + movie.poster_path"
+      >
+      <div class="info-wrapper">
+        <p class="info--title">{{ movie.title }}</p>
+
+        <p class="info--date">{{ movie.release_date.substring(0, 4)}}</p>
+        <p
+          class="info--date"
+        >{{ movie.vote_average + '/10' + ' (' + movie.vote_count + ' reviews)'}}</p>
+        <p>{{ movie.tagline }}</p>
+        <p class="info-extra">{{ movie.overview.substring(0, 250)}}...</p>
       </div>
     </div>
+    <button class="show-btn" @click="isHidden = !isHidden">
+      <i class="material-icons">play_arrow</i>Watch Trailer
+    </button>
   </div>
 </template>
 
@@ -37,25 +64,30 @@ export default {
 
 
 <style scoped>
-.vid-container {
+.video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: top;
+  display: flex;
+  justify-content: center;
   align-items: center;
+}
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.vid-container {
   position: fixed;
   top: 0;
   left: 0;
   background-color: black;
   z-index: 900000;
-}
-
-.vid-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
   width: 100vw;
   height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
 }
 
 .close-btn {
@@ -65,18 +97,75 @@ export default {
   font-size: 1.5rem;
   position: absolute;
   padding: 1rem;
-  top: 0;
+  float: left;
   z-index: 900001;
 }
 
+@media (min-width: 600px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem;
+    width: 100%;
+    height: 70vh;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+
+  .show-btn {
+    background-color: rgb(108, 84, 197);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: none;
+    color: white;
+    margin-top: 2rem;
+    padding: 0.7rem 1.2rem;
+    max-width: 250px;
+  }
+
+  .info-wrapper > * {
+    margin-top: 0.4rem;
+  }
+
+  .info-extra {
+    display: block;
+  }
+}
+@media (max-width: 599px) {
+  .hero {
+    background-image: none !important;
+  }
+
+  .info-container {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap-reverse;
+  }
+  .info-wrapper {
+    margin: 1rem;
+  }
+  .info-extra {
+    display: none;
+  }
+  .mobile-backdrop {
+    width: 100%;
+  }
+  .mobile-poster {
+    width: 150px;
+  }
+}
+@media (max-width: 400px) {
+  .mobile-poster {
+    width: 100px;
+  }
+}
+
 .hero {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 1rem;
-  width: 100%;
-  height: 70vh;
   background: linear-gradient(
     90deg,
     rgba(0, 0, 0, 1) 0%,
@@ -88,45 +177,35 @@ export default {
   background-size: cover;
 }
 
-.show-btn{
-  background-color:rgb(108, 84, 197);
+.show-btn {
+  background-color: rgb(108, 84, 197);
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  width: 100%;
+  justify-content: center;
   border: none;
   color: white;
   margin-top: 2rem;
-  padding: 0.7rem 1.2rem;
+  padding: 1.3rem;
+  font-size: 1.2rem;
 }
 
-.material-icons{
+.material-icons {
   margin-right: 0.6rem;
 }
-
-
 
 .info-wrapper {
   max-width: 650px;
 }
 
-.info-wrapper > * {
-  margin-top: 0.4rem;
-}
-
 .info--title {
   color: white;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 p {
   color: rgb(230, 230, 230);
   font-size: 1.1rem;
-}
-
-@media (min-width: 600px) {
-  .hero {
-  }
-}
-@media (min-width: 600px) {
+  margin-bottom: 0.2rem;
 }
 </style>

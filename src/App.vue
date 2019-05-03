@@ -31,6 +31,10 @@ export default {
   padding: 0;
 }
 
+h1, h2, h3, h4, h5, h6{
+  color: white;
+}
+
 /*<SCROLLBARS>-----*/
 /* width */
 ::-webkit-scrollbar {
@@ -65,7 +69,7 @@ p {
 }
 
 main {
-  margin-top: 80px;
+  margin-top: 4rem;
 }
 
 .links-img {

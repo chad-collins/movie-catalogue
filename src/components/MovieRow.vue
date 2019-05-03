@@ -1,6 +1,6 @@
 <template>
   <div class="row-container">
-    <h2 class="row-title">{{ categoryName }}</h2>
+    <h3 class="row-title">{{ categoryName }}</h3>
     <div class="movie-row-wrapper">
       <SingleMovie v-bind:movie="movie" v-bind:key="movie.id" v-for="movie in movies"/>
     </div>
@@ -24,18 +24,17 @@ export default {
 
 
 <style scoped>
-
 .row-title {
   color: white;
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   margin-left: 1.5rem;
-  margin-bottom: 0.7rem; 
+  margin-bottom: 0.7rem;
 }
 
-.movie-row-wrapper{
+.movie-row-wrapper {
   display: flex;
   width: 100%;
-  
+
   overflow-y: hidden; /* Hide horizontal scrollbar */
   overflow-x: scroll; /* Add vertical scrollbar */
 }
@@ -45,7 +44,6 @@ export default {
 }
 
 .movie-row-wrapper > *:last-child {
-  padding-right:1.5rem;
+  padding-right: 1.5rem;
 }
-
 </style>

@@ -1,13 +1,23 @@
 <template>
-  <div class="castmember">
-    <img
-      class="castmember-headshot"
-      v-bind:src="'https://image.tmdb.org/t/p/w370_and_h556_bestv2//' + castMember.profile_path"
-      v-bind:alt="'Photo of ' + castMember.name"
-    >
-    <p class="castmember-name">{{ castMember.name }}</p>
-    <p class="castmember-role">{{ castMember.character }}</p>
-  </div>
+    <div class="castmember">
+  <router-link
+    :to="{ 
+            name: 'SingleActorView', 
+            params: { 
+                id: castMember.id,
+                castMember: castMember
+            } 
+        }"
+  >
+      <img
+        class="castmember-headshot"
+        v-bind:src="'https://image.tmdb.org/t/p/w370_and_h556_bestv2//' + castMember.profile_path"
+        v-bind:alt="'Photo of ' + castMember.name"
+      >
+  </router-link>
+      <p class="castmember-name">{{ castMember.name }}</p>
+      <p class="castmember-role">{{ castMember.character }}</p>
+    </div>
 </template>
 
 

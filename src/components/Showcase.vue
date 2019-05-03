@@ -28,10 +28,10 @@
       v-bind:src="'https://image.tmdb.org/t/p/original' + movie.backdrop_path"
     >
     <div class="info-container">
-      <img
+      <!-- <img
         class="mobile-only mobile-poster"
         v-bind:src="'https://image.tmdb.org/t/p/original' + movie.poster_path"
-      >
+      > -->
       <div class="info-wrapper">
         <p class="info--title">{{ movie.title }}</p>
 
@@ -200,7 +200,7 @@ export default {
 
 .info--title {
   color: white;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 p {

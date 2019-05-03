@@ -34,7 +34,6 @@ export default {
 .movie-row-wrapper {
   display: flex;
   width: 100%;
-
   overflow-y: hidden; /* Hide horizontal scrollbar */
   overflow-x: scroll; /* Add vertical scrollbar */
 }

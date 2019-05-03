@@ -56,13 +56,13 @@
                 v-bind:key="prod"
                 v-for="prod in movie.production_companies"
               >{{ prod.name }}&nbsp;</p>
-            </li> -->
+            </li>-->
           </ul>
         </div>
-      <CastRow v-bind:cast="cast"/>
       </div>
       <div class="temp" v-if="element=='photos'">FEATURE COMING SOON</div>
     </div>
+        <CastRow v-if="element=='info'" v-bind:cast="cast"/>
   </div>
 </template>
 
@@ -83,7 +83,7 @@ export default {
       cast: [],
       directors: [],
       videoId: {},
-      element: "info",
+      element: "info"
     };
   },
   methods: {
@@ -121,7 +121,7 @@ export default {
 </script>
 
 <style scoped>
-.temp{
+.temp {
   text-align: center;
   margin: 3rem;
   color: white;
@@ -139,14 +139,13 @@ export default {
   max-height: 556px;
 }
 
-
 @media (min-width: 600px) {
- .movie-poster {
-  min-width: 320px;
-  height: min-content;
-  margin-right: 1rem;
-}
+  .movie-poster {
+    min-width: 320px;
+    height: min-content;
+    margin-right: 1rem;
   }
+}
 @media (max-width: 599px) {
   .movie-poster {
     display: none;
@@ -186,7 +185,6 @@ li {
   width: 100px;
   color: white;
 }
-
 
 .stat--splitter {
   color: orange;
